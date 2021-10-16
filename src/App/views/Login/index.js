@@ -1,14 +1,9 @@
-import { useEffect } from "react"
+
 import { Button, Form } from "react-bootstrap"
 import hook from "./hook"
 export default () => {
     const { onSubmit, register, handleSubmit, errors } = hook()
-  useEffect(()=>{ 
-    const access= localStorage.getItem('access')
-      if (access) {
-    window.location="/adminpage"
-   }
-   },[])
+  
     
   
    

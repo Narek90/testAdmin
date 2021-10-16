@@ -1,11 +1,34 @@
-import authTypes from "../Types/authTypes"
+import {USER_AUTH,SUCSESS_AUTH, GET_ME,SET_ME} from "../Types/authTypes"
 
-const login=(data)=>{
+export const login=(data)=>{
     return {
-        type:authTypes.USER_AUTH,
+        type:USER_AUTH,
         payload:data
     }
 
 }
 
-export default{login}
+export const sucsessLogin=()=>{
+    return {
+        type:SUCSESS_AUTH
+    }
+
+}
+
+ 
+
+export const getMeAction=()=>{
+    return {
+        type:GET_ME
+    }
+
+}
+export const setMeAction=(data)=>{
+    return {
+        type:SET_ME,
+        payload:data
+    }
+
+}
+
+ 

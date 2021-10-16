@@ -1,19 +1,29 @@
 
-import {takeLatest,call} from "redux-saga/effects"
+import {takeLatest,call,put} from "redux-saga/effects"
 import api from "../../services";
-import { loginRequest } from "../../services/routes/auth";
-import authTypes from "../Types/authTypes"
+import { getMeRequest, loginRequest } from "../../services/routes/auth";
+import {USER_AUTH,SUCSESS_AUTH, GET_ME} from "../Types/authTypes"
+import { getMeAction, setMeAction, sucsessLogin } from "../Actions/authAction";
 function* login({payload}){
     const {userName,password}= payload
     console.log(userName, password);
     try{
     const data=yield call(loginRequest,userName,password)
         if (data.access) {
-            console.log(data);
             localStorage.setItem("access",data.access)
-            api.defaults.headers.common['Authorization'] = "Bearer "+data.access;//??
-            window.location = "/adminpage" // ??
+            api.defaults.headers.common['Authorization'] = "Bearer "+data.access;
+            yield put(sucsessLogin())
+            yield put(getMeAction())
         }
+    }catch(error){
+       console.log(error.masage)
+    }
+}
+function* getMe(){
+    try{
+    const data=yield call(getMeRequest)
+    console.log(data);
+      yield put(setMeAction(data))  
     }catch(error){
        console.log(error.masage)
 
@@ -21,5 +31,6 @@ function* login({payload}){
 }
 export default function* watchAuth (){
     console.log ("SAGA!!!Watch")
-   yield takeLatest(authTypes.USER_AUTH,login)
+   yield takeLatest(USER_AUTH,login)
+   yield takeLatest(GET_ME,getMe)
 }

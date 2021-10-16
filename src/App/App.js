@@ -4,7 +4,7 @@ import { useDispatch } from "react-redux";
 import{BrowserRouter as Router,Route,Switch} from "react-router-dom"
 import './App.css';
 import api from "./services";
-import authAction, { sucsessLogin } from "./store/Actions/authAction";
+import authAction, { getMeAction, sucsessLogin } from "./store/Actions/authAction";
 import AdminPage from "./views/AdminPage/AdminPage";
 import Home from "./views/Home";
 import Login from "./views/Login";
@@ -18,7 +18,7 @@ const [loading, setLoading]=useState(true)
     if (access) {
       api.defaults.headers.common['Authorization'] = "Bearer "+access;
       dispatch(sucsessLogin())
-     
+      dispatch(getMeAction())
     }
     setTimeout(()=>{
       setLoading(false)

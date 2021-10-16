@@ -19,9 +19,7 @@ export default()=>{
     useEffect(()=>{
         if (isAuth) {
             history.push('/adminpage')    
-            dispatch(getMeAction()) 
-            console.log(me);
         }
-    },[isAuth,me])
-    return {onSubmit,register,handleSubmit,errors }
+    },[isAuth])
+    return {onSubmit,register,handleSubmit,errors ,me}
 }

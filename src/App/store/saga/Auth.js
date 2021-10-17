@@ -2,7 +2,7 @@
 import {takeLatest,call,put} from "redux-saga/effects"
 import api from "../../services";
 import { getMeRequest, loginRequest } from "../../services/routes/auth";
-import {USER_AUTH,SUCSESS_AUTH, GET_ME} from "../Types/authTypes"
+import {USER_AUTH, GET_ME} from "../Types/authTypes"
 import { getMeAction, setMeAction, sucsessLogin } from "../Actions/authAction";
 function* login({payload}){
     const {userName,password}= payload
@@ -22,7 +22,6 @@ function* login({payload}){
 function* getMe(){
     try{
     const data=yield call(getMeRequest)
-    console.log(data);
       yield put(setMeAction(data))  
     }catch(error){
        console.log(error.masage)

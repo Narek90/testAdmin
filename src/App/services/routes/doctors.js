@@ -1,8 +1,8 @@
 import api from "../index";
 
-export const loginRequest = async () => {
+export const doctorsRequest = async () => {
     try {
-        const responce = await api.post("users/get-doctors/?with_slots=False")
+        const responce = await api.get("users/get-doctors/?with_slots=False")
         return responce.data
     } catch (error) {
         if (error.response) {

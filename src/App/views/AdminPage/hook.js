@@ -1,7 +1,9 @@
+import { useSelector } from "react-redux"
+import { useRouteMatch } from "react-router"
+import { userSelector } from "../../store/Selectors/authSelectors"
+
 export default ()=>{
-    const logout=()=>{
-        localStorage.clear()
-        window.location="/login"
-    }
-    return {logout}
+    const user =useSelector(userSelector)
+    const match = useRouteMatch()
+    return {user,match}
 }

@@ -1,21 +1,32 @@
 import { useEffect } from "react"
-import { Button } from "react-bootstrap"
-import { useSelector } from "react-redux"
-import { userSelector } from "../../store/Selectors/authSelectors"
+import Switch from "react-bootstrap/esm/Switch"
+import { Route } from "react-router"
+import { NavMenu, DoctorsList } from "../NavMenu/index"
+import MyProfile from "../NavMenu/MyProfile/MyProfile"
 import hook from "./hook"
 
-export default ()=>{
-    const {logout}=hook()
-    const user =useSelector(userSelector)
-    useEffect(()=>{ 
-        const access= localStorage.getItem('access')
-          if (!access) {
-        window.location="/login"
-       }
-       },[])
-       
+export default () => {
+    const { user, match } = hook()
+    console.log(user);
+
+    useEffect(() => {
+        const access = localStorage.getItem('access')
+
+        if (!access) {
+            window.location = "/login"
+        }
+    }, [])
+
     return <div className="adminPage">
-        <h1>welcome to admin page!! {user?user.first_name:""}</h1>
-        <Button variant="secondary" onClick={logout}>Log out </Button>
+        <NavMenu />
+        <Switch>
+            <Route path={`${match.url}/profile`}>
+                <MyProfile/>
+            </Route>
+            <Route path={`${match.url}/doctors`}>
+                <DoctorsList />
+            </Route>
+        </Switch>
+
     </div>
 }

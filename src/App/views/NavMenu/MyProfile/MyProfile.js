@@ -3,7 +3,7 @@ import hook from "../hook"
 import Avatar from '@mui/material/Avatar';
 export default () => {
     const { loading, user } = hook()
-    console.log(user);
+
     return <div className="myProfile">
         {loading ? <Spinner animation="border" variant="dark" /> :
             <div className="userInfo">

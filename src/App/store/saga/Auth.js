@@ -28,7 +28,7 @@ function* getMe(){
     }
 }
 export default function* watchAuth (){
-    console.log ("SAGA!!!Watch")
+
    yield takeLatest(USER_AUTH,login)
    yield takeLatest(GET_ME,getMe)
 }

@@ -1,18 +1,21 @@
 import { useEffect, useState } from "react"
-import { useSelector } from "react-redux"
-import { useRouteMatch } from "react-router"
+import { useDispatch, useSelector } from "react-redux"
+import { useHistory, useRouteMatch } from "react-router"
 import {  userSelector } from "../../store/Selectors/authSelectors"
 import { doctorsSelector } from "../../store/Selectors/doctorsSelectors"
+import { getDoctorsAction } from "../../store/Actions/doctorActions"
+
 
 export default ()=>{   
     const user=useSelector(userSelector)  
-    const doctors=useSelector(doctorsSelector)  
-    console.log(doctors);
+    const doctors=useSelector(doctorsSelector) 
+    const dispatch= useDispatch() 
     const match = useRouteMatch()
     const [loading, setLoading]=useState(true)
+    const history= useHistory()
 
     useEffect(()=>{
-
+        dispatch(getDoctorsAction())
         setTimeout(()=>{
            setLoading(false)
         },1000)
@@ -23,5 +26,6 @@ export default ()=>{
         window.location="/login"
     }
 
-    return {logout, match,loading,user}
+
+    return {logout, match,loading,user,doctors,history,dispatch}
 }

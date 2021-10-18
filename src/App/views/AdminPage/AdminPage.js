@@ -19,6 +19,7 @@ export default () => {
 
     return <div className="adminPage">
         <NavMenu />
+        <div className= "main">
         <Switch>
             <Route path={`${match.url}/profile`}>
                 <MyProfile/>
@@ -27,6 +28,7 @@ export default () => {
                 <DoctorsList />
             </Route>
         </Switch>
+        </div>
 
     </div>
 }

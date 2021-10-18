@@ -1,8 +1,9 @@
 import { useEffect } from "react"
 import { useForm } from "react-hook-form"
 import { useDispatch, useSelector } from "react-redux"
-import { useHistory, useRouteMatch } from "react-router"
+import { useHistory} from "react-router"
 import {login } from "../../store/Actions/authAction"
+import { getDoctorsAction } from "../../store/Actions/doctorActions"
 import { isAuthSelector, } from "../../store/Selectors/authSelectors"
 
 
@@ -14,7 +15,7 @@ export default()=>{
     const {register,handleSubmit,formState:{errors}}= useForm()
     const onSubmit=(data)=>{
         dispatch(login(data))
-      
+        dispatch(getDoctorsAction())
     }
     useEffect(()=>{
         if (isAuth) {

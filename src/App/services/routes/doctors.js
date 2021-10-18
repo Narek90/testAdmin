@@ -1,13 +1,13 @@
 import api from "../index";
 
-export const doctorsRequest = async () => {
+export const getDoctorsRequest = async () => {
     try {
         const responce = await api.get("users/get-doctors/?with_slots=False")
-        return responce.data
+        return responce.data.results
     } catch (error) {
         if (error.response) {
             
-            throw error.response.data; // => the response payload 
+            throw error.response.data; 
             
         }
         

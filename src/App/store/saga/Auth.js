@@ -6,7 +6,6 @@ import {USER_AUTH, GET_ME} from "../Types/authTypes"
 import { getMeAction, setMeAction, sucsessLogin } from "../Actions/authAction";
 function* login({payload}){
     const {userName,password}= payload
-    console.log(userName, password);
     try{
     const data=yield call(loginRequest,userName,password)
         if (data.access) {

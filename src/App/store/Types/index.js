@@ -1,0 +1,5 @@
+import {USER_AUTH,SUCSESS_AUTH,GET_ME,SET_ME} from "./authTypes"
+import {GET_DOCTORS,SET_DOCTORS} from "./doctorTypes"
+
+
+export  {USER_AUTH,SUCSESS_AUTH,GET_ME,SET_ME,GET_DOCTORS,SET_DOCTORS}

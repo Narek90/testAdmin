@@ -1,5 +1,5 @@
 import { SET_DOCTORS } from "../Types"
-import { SET_SELECTED_DOCTOR } from "../Types/doctorTypes"
+import { CHANGE_DOCTOR, SET_SELECTED_DOCTOR } from "../Types/doctorTypes"
 
 const INIT_STATE={
   doctors:[],
@@ -17,6 +17,9 @@ export default (state=INIT_STATE,action)=>{
             return item.id === parseInt(payload)
           })
         return {...state,doctor:selectedDoctor?selectedDoctor:null}
+    
+        case CHANGE_DOCTOR:
+        return {...state,doctor:{...state.doctor, ...payload}}
     
         default:
            return state

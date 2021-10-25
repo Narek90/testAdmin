@@ -1,5 +1,5 @@
-import { GET_DOCTORS, SET_DOCTORS } from "../Types"
-import { GET_SELECTED_DOCTOR, GET_SELECTED_DOCTORS, SET_SELECTED_DOCTOR } from "../Types/doctorTypes"
+import { GET_DOCTORS, SET_DOCTORS,CHANGE_DOCTOR, GET_SELECTED_DOCTOR,SET_SELECTED_DOCTOR, UPDATE_DOCTOR_INFO  } from "../Types"
+
 
 export const getDoctorsAction=()=>{
     return{
@@ -23,5 +23,16 @@ export const setSelectedDoctorAction=(id)=>{
     return{
         type:SET_SELECTED_DOCTOR,
         payload:id
+    }
+}
+export const ChangeDoctorInfoAction=(payload)=>{
+    return{
+        type:CHANGE_DOCTOR,
+        payload
+    }
+}
+export const updateDoctorInfoAction=()=>{
+    return{
+        type:UPDATE_DOCTOR_INFO,
     }
 }

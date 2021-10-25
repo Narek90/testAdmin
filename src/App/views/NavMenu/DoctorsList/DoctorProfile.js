@@ -3,21 +3,25 @@ import hook from "../hook"
 import Avatar from '@mui/material/Avatar';
 import { useParams } from "react-router";
 import { useEffect } from "react";
-import { getSelectedDoctorAction } from "../../../store/Actions/doctorActions";
+import { getDoctorsAction, getSelectedDoctorAction } from "../../../store/Actions/doctorActions";
 import { useSelector } from "react-redux";
-import { selectedDoctorSelector } from "../../../store/Selectors/doctorsSelectors";
-import { Rating } from "@mui/material";
+import { doctorsSelector, selectedDoctorSelector } from "../../../store/Selectors/doctorsSelectors";
+import { Rating} from "@mui/material";
+import { Check, Close,Edit } from "@mui/icons-material";
+import { Link } from "react-router-dom";
 export default () => {
-    const { loading,
-        dispatch } = hook()
+    const {dispatch,match } = hook()
     const {id}=useParams()
     const doctor = useSelector(selectedDoctorSelector)
+    const doctorsList= useSelector(doctorsSelector)
+    
     useEffect(()=>{
-        dispatch(getSelectedDoctorAction(id))
-        
-    },[id])
-    console.log(doctor);
-  
+        if (doctorsList) {
+            dispatch(getSelectedDoctorAction(id))  
+        }
+    },[id,doctorsList])
+   
+
 
     return (
         !doctor ? <Spinner animation="border" variant="dark" /> :
@@ -46,7 +50,7 @@ export default () => {
                         </tr>
                         <tr>
                             <td>Price:</td>
-                            <td colSpan="2">{doctor?.price}$</td>
+                            <td colSpan="2">{doctor?.doctor_details.price}$</td>
                            
                         </tr>
                         <tr>
@@ -69,9 +73,34 @@ export default () => {
                         <tr>
                             <td>Excperience Start Year:</td>
                             <td colSpan="2">
-                            {doctor?.excperience_start_year}
+                            {doctor?.doctor_details.excperience_start_year}
                             </td>
-                           
+                        </tr>
+                        <tr>
+                            <td>Is popular:</td>
+                            <td colSpan="2">
+                            {doctor?.doctor_details.is_popular? <Check/>: <Close/>}
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Email:</td>
+                            <td colSpan="2">
+                            {doctor?.email}
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Phone number:</td>
+                            <td colSpan="2">
+                            {doctor?.phone_number}
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Make changes:</td>
+                            <td colSpan="2">
+                        <Link to={`${match.url}/changedoctorinfo`}>
+                          <Edit/>
+                          </Link>
+                            </td>
                         </tr>
                         
                     </tbody>

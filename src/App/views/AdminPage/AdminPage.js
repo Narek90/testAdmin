@@ -1,14 +1,13 @@
 import { useEffect } from "react"
-import Switch from "react-bootstrap/esm/Switch"
+import {Switch} from "react-router"
 import { Route } from "react-router"
-import DoctorProfile from "../NavMenu/DoctorsList/DoctorProfile"
 import DoctorsPage from "../NavMenu/DoctorsList/DoctorsPage"
-import { NavMenu} from "../NavMenu/index"
+import {NavMenu} from "../NavMenu/index"
 import MyProfile from "../NavMenu/MyProfile/MyProfile"
 import hook from "./hook"
 
 export default () => {
-    const { user, match } = hook()
+    const {match } = hook()
 
 
     useEffect(() => {

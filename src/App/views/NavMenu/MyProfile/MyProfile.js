@@ -4,9 +4,9 @@ import Avatar from '@mui/material/Avatar';
 export default () => {
     const { loading, user } = hook()
 
-    return <div className="myProfile">
+    return <div className="doctorInfo">
         {loading ? <Spinner animation="border" variant="dark" /> :
-            <div className="userInfo">
+            <div className="doctorInfo">
                 <Avatar
                     alt={user.first_name}
                     src={user.profile_image}

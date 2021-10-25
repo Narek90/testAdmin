@@ -2,7 +2,7 @@
 import { Button, Form } from "react-bootstrap"
 import hook from "./hook"
 export default () => {
-    const { onSubmit, register, handleSubmit, errors } = hook()
+    const { onSubmit, register, handleSubmit} = hook()
   
     
   

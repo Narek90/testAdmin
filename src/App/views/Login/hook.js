@@ -21,6 +21,6 @@ export default()=>{
         if (isAuth) {
             history.push(`/adminpage`)    
         }
-    },[isAuth])
+    },[isAuth,history])
     return {onSubmit,register,handleSubmit,errors }
 }

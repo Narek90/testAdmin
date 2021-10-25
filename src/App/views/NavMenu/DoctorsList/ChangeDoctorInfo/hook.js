@@ -32,7 +32,6 @@ export default ()=>{
     }
     useEffect(() => {
         dispatch(getSelectedDoctorAction(id))
-        
     }, [id])
     return {
         match,

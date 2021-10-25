@@ -3,7 +3,7 @@ import hook from "../hook"
 import Avatar from '@mui/material/Avatar';
 import { useParams } from "react-router";
 import { useEffect } from "react";
-import { getDoctorsAction, getSelectedDoctorAction } from "../../../store/Actions/doctorActions";
+import { getSelectedDoctorAction } from "../../../store/Actions/doctorActions";
 import { useSelector } from "react-redux";
 import { doctorsSelector, selectedDoctorSelector } from "../../../store/Selectors/doctorsSelectors";
 import { Rating} from "@mui/material";

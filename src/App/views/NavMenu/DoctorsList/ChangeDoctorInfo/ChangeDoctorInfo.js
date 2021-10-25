@@ -3,7 +3,6 @@ import hook from "./hook"
 import Avatar from '@mui/material/Avatar';
 import { Rating, TextField } from "@mui/material";
 import { Check, Close } from "@mui/icons-material";
-import { Link } from "react-router-dom";
 export default () => {
     const {
         doctor,

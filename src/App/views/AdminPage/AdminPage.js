@@ -1,6 +1,8 @@
+
 import { useEffect } from "react"
 import {Switch} from "react-router"
 import { Route } from "react-router"
+import Categories from "../NavMenu/Categories/Categories"
 import DoctorsPage from "../NavMenu/DoctorsList/DoctorsPage"
 import {NavMenu} from "../NavMenu/index"
 import MyProfile from "../NavMenu/MyProfile/MyProfile"
@@ -27,6 +29,9 @@ export default () => {
             </Route>
             <Route path={`${match.url}/doctors`}>
                 <DoctorsPage />
+            </Route>
+            <Route path={`${match.url}/categories`}>
+                <Categories />
             </Route>
 
         </Switch>

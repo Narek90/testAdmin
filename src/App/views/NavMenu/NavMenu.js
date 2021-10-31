@@ -12,6 +12,9 @@ export default ()=>{
       <Nav.Link href={`${match.url}/profile`}>My profile</Nav.Link>
     </Nav.Item>
     <Nav.Item>
+      <Nav.Link href={`${match.url}/categories`}>Categories</Nav.Link>
+    </Nav.Item>
+    <Nav.Item>
     <Nav.Link href={`${match.url}/doctors/list`}>Doctors list</Nav.Link>
     </Nav.Item>
     <Nav.Item>

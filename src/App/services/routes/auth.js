@@ -10,7 +10,7 @@ export const loginRequest = async (username, password) => {
     } catch (error) {
         if (error.response) {
             
-            throw error.response.data; // => the response payload 
+            throw error.response.data; 
             
         }
         

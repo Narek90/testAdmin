@@ -50,36 +50,36 @@ export default () => {
                         </tr>
                         <tr>
                             <td>Price:</td>
-                            <td colSpan="2">{doctor?.doctor_details.price}$</td>
+                            <td colSpan="2">{doctor?.doctor_details?.price}$</td>
                            
                         </tr>
                         <tr>
                             <td>Discription title:</td>
-                            <td colSpan="2">{doctor.user_categories[0]?.category?.title?.en}</td>
+                            <td colSpan="2">{doctor?.user_categories[0]?.category?.title?.en}</td>
                            
                         </tr>
                         <tr>
                         <td>Discription:</td>
-                            <td colSpan="2">{doctor.user_categories[0]?.category?.description?.en}</td>
+                            <td colSpan="2">{doctor?.user_categories[0]?.category?.description?.en}</td>
                            
                         </tr>
                         <tr>
                             <td>Rating:</td>
                             <td colSpan="2">
-                            <Rating name="half-rating" defaultValue={doctor.rating} precision={0.5} />
+                            <Rating name="half-rating" defaultValue={doctor?.rating} precision={0.5} />
                             </td>
                            
                         </tr>
                         <tr>
                             <td>Excperience Start Year:</td>
                             <td colSpan="2">
-                            {doctor?.doctor_details.excperience_start_year}
+                            {doctor?.doctor_details?.excperience_start_year}
                             </td>
                         </tr>
                         <tr>
                             <td>Is popular:</td>
                             <td colSpan="2">
-                            {doctor?.doctor_details.is_popular? <Check/>: <Close/>}
+                            {doctor?.doctor_details?.is_popular? <Check/>: <Close/>}
                             </td>
                         </tr>
                         <tr>

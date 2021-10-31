@@ -1,23 +1,10 @@
 import { Delete, Edit } from "@mui/icons-material"
-import { useEffect } from "react"
-import { Button, Spinner, Table } from "react-bootstrap"
-import { useDispatch, useSelector } from "react-redux"
-import { deleteCategoryAction, getCategoriesAction } from "../../../store/Actions/categoriesActions"
-import { categoriesSelector } from "../../../store/Selectors/categoriesSelectors"
-import hook from "../hook"
+import { Button,Table } from "react-bootstrap"
+import hookCategories from "./hook"
+
 
 export default ()=>{
-    
-    const dispatch=useDispatch()
-    const categories=useSelector(categoriesSelector)
-    console.log(categories);
-    const deleteCategory=(id)=>{
-        dispatch(deleteCategoryAction(id))
-
-    }
-    useEffect(()=>{
-        dispatch(getCategoriesAction())
-    },[])
+    const {categories,deleteCategory}=hookCategories()
     return <div className='Categories'>
         <h1>Категории</h1>
       
